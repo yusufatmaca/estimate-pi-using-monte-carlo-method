@@ -57,7 +57,7 @@ For the sake of simplicity of mathematical operations, let us consider a concent
 $$ \text{Area Circle}: A_c = \pi.r^2 $$
 $$ \text{Area Square}: A_s = (2r)^2 = 4r^2 $$
 $$ \text{The ratio of the two areas is}: \frac{A_c}{A_s} = \frac{\pi.\bcancel{r^2}}{4\bcancel{r^2}} $$
-$$ \text{Let's solve for pi}: \pi = \frac{4A_c}{A_s} \hspace{2.5cm} \text{(1)}$$ 
+$$ \text{Let's solve for pi}: \pi = \frac{4A_c}{A_s} \hspace{3.5cm} \text{(1)}$$ 
 
 If we have an estimate for the ratio of the area of the circle to the area of the square we can solve for $\pi$. The challenge becomes estimating this ratio.  
 
@@ -65,7 +65,7 @@ This ratio can be interpreted probabilistically: if we randomly toss darts unifo
 
 If we toss $N$ random darts, the number of darts that land inside the circle, say ${N_\text{circle}}$​, will approximately satisfy:
 
-$$ \frac{N_\text{circle}}{N}\approx \frac{4 \times A_c}{A_s} = \pi \hspace{2.5cm} \text{(2)}$$
+$$ \frac{N_\text{circle}}{N}\approx \frac{4 \times A_c}{A_s} = \pi \hspace{3.5cm} \text{(2)}$$
 
 ---
 
