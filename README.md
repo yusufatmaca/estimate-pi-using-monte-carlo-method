@@ -71,7 +71,7 @@ $$ \frac{N_\text{circle}}{N}\approx \frac{4 \times A_c}{A_s} = \pi \hspace{3.5cm
 
 ## Algorithm for NON-Parallel Version
 1. Define the variable `number_of_tosses` (referring to $N$ in eq. 2), and specify how many iterations we will estimate $\pi$. Remember, every toss has to fall inside the square!
-2. Define the variable `toss` and assign it 0 to use every iteration to reach $\text{toss}=\text{number_of_tosses}$
+2. Define the variable `toss` and assign it 0 to use every iteration to reach $\text{toss} = \text{number\_of\_tosses}$
 3. Define the variable `number_in_circle` (referring to $N_\text{circle}$ in eq. 2) and assign it 0. We will use this variable for tosses that fall inside the circle.
 4. Since we are working in **two-dimensional space**, randomly generate $x$ and $y$ value ​​between $-1$ and $1$.
 5. If the coordinates lie inside a circle, then they must satisfy the equation $x^2 + y^2 \leq 1$, and if so, this point lies not only inside the square but also inside the circle. Therefore `number_in_circle` must be incremented by one.
