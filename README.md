@@ -82,3 +82,4 @@ $$ \frac{N_\text{circle}}{N}\approx \frac{4 \times A_c}{A_s} = \pi \hspace{1.5cm
 
 
 [^1]: https://courses.cs.washington.edu/courses/cse160/16wi/sections/07/Section07Handout.pdf
+[^2]: https://www.geeksforgeeks.org/estimating-value-pi-using-monte-carlo/
