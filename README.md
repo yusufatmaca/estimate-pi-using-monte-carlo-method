@@ -57,12 +57,7 @@ For the sake of simplicity of mathematical operations, let us consider a concent
 $$ \text{Area Circle}: A_c = \pi.r^2 $$
 $$ \text{Area Square}: A_s = (2r)^2 = 4r^2 $$
 $$ \text{The ratio of the two areas is}: \frac{A_c}{A_s} = \frac{\pi.\bcancel{r^2}}{4\bcancel{r^2}} $$
-$$ 
-\begin{equation}
-
-\text{Let's solve for pi}: \pi = \frac{4A_c}{A_s}
-\end{equation}
-$$ 
+$$ \text{Let's solve for pi}: \pi = \frac{4A_c}{A_s}$$ 
 
 If we have an estimate for the ratio of the area of the circle to the area of the square we can solve for $\pi$. The challenge becomes estimating this ratio.  
 
