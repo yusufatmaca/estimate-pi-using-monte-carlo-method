@@ -11,13 +11,13 @@ If you want to work on [Google Colab](https://colab.google/), you should follow 
 # check python version to verify automatically installed
 !python --version
 
-# check nvcc (CUDA compiler driver) version to verify automatically installed
+# check nvcc (CUDA compiler driver) version to verify the automatically installed
 !nvcc --version
 
 # since google colab runs jupyter notebook, we need to install nvcc4jupyter: cuda c++ plugin for jupyter notebook
 !pip install nvcc4jupyter
 
-# after installing, load package (or extension)
+# after installing, load the package (or extension)
 %load_ext nvcc4jupyter
 ```
 
@@ -38,7 +38,7 @@ int main(){
 ```
 ---
 
-**What is [Monte Carlo Method]([url](https://en.wikipedia.org/wiki/Monte_Carlo_method))?**  
+## What is [Monte Carlo Method]([url](https://en.wikipedia.org/wiki/Monte_Carlo_method))? 
 Monte Carlo methods, or Monte Carlo experiments, are a broad class of computational algorithms that rely on repeated random sampling to obtain numerical results. The underlying concept is to use randomness to solve problems that might be deterministic in principle. The name comes from the Monte Carlo Casino in Monaco, where the primary developer of the method, mathematician Stanislaw Ulam, was inspired by his uncle's gambling habits. (Wikipedia)
 
 This is where we can take advantage of how quickly a computer can generate pseudorandom numbers. There is a whole class of algorithms called Monte  Carlo simulations that exploit randomness to estimate real-world scenarios that would otherwise be difficult to calculate explicitly. We can use a  Monte Carlo simulation to  estimate the area ratio of the circle to the square.[^1]
@@ -47,7 +47,7 @@ Imagine we randomly hit darts into the area of the square. We get this estimate
 
 ---
 
-**Mathematical Explanation of This Problem**  
+## Mathematical Explanation of This Problem
 For the sake of simplicity of mathematical operations, let us consider a concentric circle of length 1 feet and a square inscribing this circle. 
 
 <p align="center">
@@ -57,7 +57,12 @@ For the sake of simplicity of mathematical operations, let us consider a concent
 $$ \text{Area Circle}: A_c = \pi.r^2 $$
 $$ \text{Area Square}: A_s = (2r)^2 = 4r^2 $$
 $$ \text{The ratio of the two areas is}: \frac{A_c}{A_s} = \frac{\pi.\bcancel{r^2}}{4\bcancel{r^2}} $$
-$$ \text{Let's solve for pi}: \pi = \frac{4A_c}{A_s}$$ 
+$$ 
+\begin{equation}
+
+\text{Let's solve for pi}: \pi = \frac{4A_c}{A_s}
+\end{equation}
+$$ 
 
 If we have an estimate for the ratio of the area of the circle to the area of the square we can solve for $\pi$. The challenge becomes estimating this ratio.  
 
@@ -66,6 +71,16 @@ This ratio can be interpreted probabilistically: if we randomly toss darts unifo
 If we toss $N$ random darts, the number of darts that land inside the circle, say ${N_\text{circle}}$​, will approximately satisfy:
 
 $$ \frac{N_\text{circle}}{N}\approx \frac{4 \times A_c}{A_s} = \pi $$
+
+---
+
+## Algorithm for NON-Parallel Version
+1. Define the variable `number_of_tosses` and specify how many iterations we will estimate $\pi$. Remember, every toss has to fall inside the square!
+2. Define the variable `number_in_circle` and assign it 0. We will use this variable for tosses that fall inside the circle.
+3. Since we are working in **two-dimensional space**, randomly generate $x$ and $y$ values ​​between $-1$ and $1$.
+4. If the coordinates lie inside a circle, then they must satisfy the equation $x^2 + y^2 \leq 1$, and if so, this point lies not only inside the square but also inside the circle. Therefore `number_in_circle` must be incremented by one.
+5. 
+
 
 
 [^1]: https://courses.cs.washington.edu/courses/cse160/16wi/sections/07/Section07Handout.pdf
