@@ -57,7 +57,7 @@ For the sake of simplicity of mathematical operations, let us consider a concent
 $$ \text{Area Circle}: A_c = \pi.r^2 $$
 $$ \text{Area Square}: A_s = (2r)^2 = 4r^2 $$
 $$ \text{The ratio of the two areas is}: \frac{A_c}{A_s} = \frac{\pi.\bcancel{r^2}}{4\bcancel{r^2}} $$
-$$ \text{Let's solve for pi}: \pi = \frac{4A_c}{A_s} \hspace{3.5cm} \text{(1)}$$ 
+$$ \text{Let's solve for pi}: \pi = \frac{4A_c}{A_s} \hspace{1.5cm} \text{(1)}$$ 
 
 If we have an estimate for the ratio of the area of the circle to the area of the square we can solve for $\pi$. The challenge becomes estimating this ratio.  
 
@@ -65,17 +65,19 @@ This ratio can be interpreted probabilistically: if we randomly toss darts unifo
 
 If we toss $N$ random darts, the number of darts that land inside the circle, say ${N_\text{circle}}$​, will approximately satisfy:
 
-$$ \frac{N_\text{circle}}{N}\approx \frac{4 \times A_c}{A_s} = \pi \hspace{3.5cm} \text{(2)}$$
+$$ \frac{N_\text{circle}}{N}\approx \frac{4 \times A_c}{A_s} = \pi \hspace{1.5cm} \text{(2)}$$
 
 ---
 
 ## Algorithm for NON-Parallel Version
 1. Define the variable `number_of_tosses` (referring to $N$ in eq. 2), and specify how many iterations we will estimate $\pi$. Remember, every toss has to fall inside the square!
-2. Define the variable `toss` and assign it 0 to use every iteration to reach `toss` = `number_of_tosses`
+2. Define the variable `toss` and assign it 0 to use every iteration.
 3. Define the variable `number_in_circle` (referring to $N_\text{circle}$ in eq. 2) and assign it 0. We will use this variable for tosses that fall inside the circle.
 4. Since we are working in **two-dimensional space**, randomly generate $x$ and $y$ value ​​between $-1$ and $1$.
 5. If the coordinates lie inside a circle, then they must satisfy the equation $x^2 + y^2 \leq 1$, and if so, this point lies not only inside the square but also inside the circle. Therefore `number_in_circle` must be incremented by one.
-6. Increment `number_of_tosses` by one and repeat from 2 until . 
+6. Increment `toss` by one and repeat from 2 until `toss` = `number_of_tosses`.
+7. Calculate $\pi$ using eq. 2.
+8. Print estimated $\pi$ value.
 
 
 
