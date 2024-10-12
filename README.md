@@ -1,4 +1,4 @@
-# Monte Carlo Method to Estimate $\pi on CUDA$
+# Monte Carlo Method to Estimate $\pi$ on CUDA
 
 If you want to work on [Google Colab](https://colab.google/), you should follow the steps below:
 * Create a **new notebook** on Google Colab
