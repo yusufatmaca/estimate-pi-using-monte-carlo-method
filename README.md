@@ -60,6 +60,7 @@ $$ \text{The ratio of the two areas is}: \frac{A_c}{A_s} = \frac{\pi.\bcancel{r^
 $$ \text{Let's solve for pi}: \pi = \frac{4A_c}{A_s}$$ 
 
 If the points that are hit by the darts are uniformly distributed (and we always hit the square), then the number of darts that hit inside the circle should approximately satisfy the equation below:
+
 $$ \frac{4\text{number in circle}}{\text{total number of tosses}} $$
 
 
