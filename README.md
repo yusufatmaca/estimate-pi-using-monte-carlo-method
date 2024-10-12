@@ -59,9 +59,11 @@ $$ \text{Area Square}: A_s = (2r)^2 = 4r^2 $$
 $$ \text{The ratio of the two areas is}: \frac{A_c}{A_s} = \frac{\pi.\bcancel{r^2}}{4\bcancel{r^2}} $$
 $$ \text{Let's solve for pi}: \pi = \frac{4A_c}{A_s}$$ 
 
+If we have an estimate for the ratio of the area of the circle to the area of the square we can solve for \pi. The challenge becomes estimating this ratio.  
+
 If the points that are hit by the darts are uniformly distributed (and we always hit the square), then the number of darts that hit inside the circle should approximately satisfy the equation below:
 
-$$ \frac{4\text{number in circle}}{\text{total number of tosses}} $$
+$$ \frac{4\times\text{number in circle}}{\text{total number of tosses}} = $$
 
 
 [^1]: https://courses.cs.washington.edu/courses/cse160/16wi/sections/07/Section07Handout.pdf
