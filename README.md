@@ -1,6 +1,6 @@
 # Monte Carlo Method to Estimate $\pi$
 
-If you want to work on [Google Colab]([url](https://colab.google/)), you should follow the steps below:
+If you want to work on [Google Colab](https://colab.google/), you should follow the steps below:
 * Create a **new notebook** on Google Colab
 * Click on the **runtime** button from the menu above and click on **Change runtime type** from the window that opens
 * Select **T4 GPU** from the pop-up that opens and save
@@ -21,7 +21,7 @@ If you want to work on [Google Colab]([url](https://colab.google/)), you should 
 %load_ext nvcc4jupyter
 ```
 
-> Click [here]([url](https://github.com/andreinechaev/nvcc4jupyter)) to learn more about the `nvcc4jupyter` plugin.
+> Click [here](https://github.com/andreinechaev/nvcc4jupyter) to learn more about the `nvcc4jupyter` plugin.
 
 To see that we have successfully installed CUDA, let's add a new code cell and run the test code below.
 
