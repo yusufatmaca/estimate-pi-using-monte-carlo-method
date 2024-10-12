@@ -45,14 +45,19 @@ This is where we can take advantage of how quickly a computer can generate pseud
 
 Imagine we randomly hit darts into the area of the square. We get this estimate by counting the total number of darts in the square (all of them since we always hit the square) to the total number of darts inside the circle. Multiply the estimated ratio by four and we get an estimate for $\pi$. The more dart we use the more accurate our estimate of $\pi$.  
 
-**Mathematical Explanation of This Problem**
+---
+
+**Mathematical Explanation of This Problem**  
 For the sake of simplicity of mathematical operations, let us consider a concentric circle of length 1 feet and a square inscribing this circle. 
 
 <p align="center">
   <img src="https://i.ibb.co/1RBMKT9/Screenshot-from-2024-10-12-12-14-52.png?raw=true" width="200px" height="200px" alt="concentric unit circle and square"/>
 </p>
 
-
+$$ \text{Area Circle}: A_c = \pi.r^2 $$
+$$ \text{Area Square}: A_s = (2r)^2 = 4r^2 $$
+$$ \text{The ratio of the two areas is}: \frac{A_c}{A_s} = \frac{\pi.\cancel{r^2}}{4r^2} $$
+$$ \text{Let's solve for pi}: \pi = \frac{4A_c}{A_s} $$
 
 
 [^1]: https://courses.cs.washington.edu/courses/cse160/16wi/sections/07/Section07Handout.pdf
