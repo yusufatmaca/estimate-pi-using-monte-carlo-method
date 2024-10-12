@@ -69,7 +69,7 @@ $$ \frac{N_\text{circle}}{N}\approx \frac{4 \times A_c}{A_s} = \pi \hspace{1.5cm
 
 ---
 
-## Algorithm for NON-Parallel Version
+## Algorithm for NON-Parallel Version [^2]
 1. Define the variable `number_of_tosses` (referring to $N$ in eq. 2), and specify how many iterations we will estimate $\pi$. Remember, every toss has to fall inside the square!
 2. Define the variable `toss` and assign it 0 to use every iteration.
 3. Define the variable `number_in_circle` (referring to $N_\text{circle}$ in eq. 2) and assign it 0. We will use this variable for tosses that fall inside the circle.
