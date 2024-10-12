@@ -49,7 +49,7 @@ Imagine we randomly hit darts into the area of the square. We get this estimate
 For the sake of simplicity of mathematical operations, let us consider a concentric circle of length 1 feet and a square inscribing this circle. 
 
 <p align="center">
-  <img src="https://i.ibb.co/1RBMKT9/Screenshot-from-2024-10-12-12-14-52.png?raw=true" alt="concentric unit circle and square"/>
+  <img src="https://i.ibb.co/1RBMKT9/Screenshot-from-2024-10-12-12-14-52.png?raw=true" width="200px" height="200px" alt="concentric unit circle and square"/>
 </p>
 
 
