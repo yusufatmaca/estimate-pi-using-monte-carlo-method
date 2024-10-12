@@ -62,7 +62,10 @@ $$ \text{Let's solve for pi}: \pi = \frac{4A_c}{A_s}$$
 If we have an estimate for the ratio of the area of the circle to the area of the square we can solve for $\pi$. The challenge becomes estimating this ratio.  
 
 This ratio can be interpreted probabilistically: if we randomly toss darts uniformly into the square, the proportion of darts that land inside the circle (compared to the total number of darts) should be approximately equal to the ratio of the area of the circle to the area of the square.
-$$ \frac{4\times\text{number in circle}}{\text{total number of tosses}} = $$
+
+If we toss $N$ random darts, the number of darts that land inside the circle, say $\text{N_circle}$​, will approximately satisfy:
+
+$$ \frac{\text{N_circle}}{\text{N}} \approx \frac{4 \times A_c}{A_s}$$
 
 
 [^1]: https://courses.cs.washington.edu/courses/cse160/16wi/sections/07/Section07Handout.pdf
