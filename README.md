@@ -1,1 +1,1 @@
-# estimate-pi-using-monte-carlo-method
+# Monte Carlo Method to Estimate $\pi$
