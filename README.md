@@ -60,4 +60,5 @@ $$ \text{The ratio of the two areas is}: \frac{A_c}{A_s} = \frac{\pi.\bcancel{r^
 $$ \text{Let's solve for pi}: \pi = \frac{4A_c}{A_s} $$
 
 
+
 [^1]: https://courses.cs.washington.edu/courses/cse160/16wi/sections/07/Section07Handout.pdf
