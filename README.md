@@ -61,8 +61,7 @@ $$ \text{Let's solve for pi}: \pi = \frac{4A_c}{A_s}$$
 
 If we have an estimate for the ratio of the area of the circle to the area of the square we can solve for $\pi$. The challenge becomes estimating this ratio.  
 
-If the points that are hit by the darts are uniformly distributed (and we always hit the square), then the number of darts that hit inside the circle should approximately satisfy the equation below:
-
+This ratio can be interpreted probabilistically: if we randomly toss darts uniformly into the square, the proportion of darts that land inside the circle (compared to the total number of darts) should be approximately equal to the ratio of the area of the circle to the area of the square.
 $$ \frac{4\times\text{number in circle}}{\text{total number of tosses}} = $$
 
 
