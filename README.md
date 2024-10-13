@@ -44,7 +44,7 @@ Monte Carlo methods, or Monte Carlo experiments, are a broad class of computatio
 
 This is where we can take advantage of how quickly a computer can generate pseudorandom numbers. There is a whole class of algorithms called Monte  Carlo simulations that exploit randomness to estimate real-world scenarios that would otherwise be difficult to calculate explicitly. We can use a  Monte Carlo simulation to  estimate the area ratio of the circle to the square.[^2]
 
-Imagine we randomly hit darts into the area of the square. We get this estimate by counting the total number of darts in the square (all of them since we always hit the square) to the total number of darts inside the circle. Multiply the estimated ratio by four and we get an estimate for $\pi$. The more dart we use the more accurate our estimate of $\pi$.  
+Imagine we randomly hit darts into the area of the square. We get this estimate by counting the total number of darts in the square (all of them since we always hit the square) to the total number of darts inside the circle. Multiply the estimated ratio by four and we get an estimate for $\pi$. The more dart we use the more accurate our estimate of $\pi$.
 
 ---
 
@@ -60,31 +60,46 @@ $$ \text{Area Square}: A_s = (2r)^2 = 4r^2 $$
 $$ \text{The ratio of the two areas is}: \frac{A_c}{A_s} = \frac{\pi.\bcancel{r^2}}{4\bcancel{r^2}} $$
 $$ \text{Let's solve for pi}: \pi = \frac{4A_c}{A_s} \hspace{1.5cm} \text{(1)}$$ 
 
-If we have an estimate for the ratio of the area of the circle to the area of the square we can solve for $\pi$. The challenge becomes estimating this ratio.  
+If we have an estimate for the ratio of the area of the circleto the area of the square we can solve for $\pi$. The challenge becomes estimating this ratio.
 
 This ratio can be interpreted probabilistically: if we randomly toss darts uniformly into the square, the proportion of darts that land inside the circle (compared to the total number of darts) should be approximately equal to the ratio of the area of the circle to the area of the square.
 
-If we toss $N$ random darts, the number of darts that land inside the circle, say ${N_\text{circle}}$​, will approximately satisfy:
+If we toss $N$ random darts, the number of darts that land inside the circle, say ${N_\text{circle}}$, will approximately satisfy:
 
 $$ \frac{N_\text{circle}}{N}\approx \frac{4 \times A_c}{A_s} = \pi \hspace{1.5cm} \text{(2)}$$
 
 ---
 
 ## Algorithm for NON-Parallel Version [^3]
-1. Define the variable `number_of_tosses` (referring to $N$ in eq. 2), and specify how many iterations we will estimate $\pi$. Remember, every toss has to fall inside the square!
+1. Define the variable `number_of_tosses` (referring to $N$ in eq. 2), and specify how many iterations we will estimate $\pi$. Remember, every toss has to fall inside the square, but may not fall inside the circle!
 2. Define the variable `toss` and assign it 0 to use every iteration.
 3. Define the variable `number_in_circle` (referring to $N_\text{circle}$ in eq. 2) and assign it 0. We will use this variable for tosses that fall inside the circle.
-4. Since we are working in **two-dimensional space**, randomly generate $x$ and $y$ value ​​between $-1$ and $1$.
+4. Since we are working in **two-dimensional space**, randomly generate $x$ and $y$ value between $-1$ and $1$.
 5. If the coordinates lie inside a circle, then they must satisfy the equation $x^2 + y^2 \leq 1$, and if so, this point lies not only inside the square but also inside the circle. Therefore `number_in_circle` must be incremented by one.
 6. Increment `toss` by one and repeat from **2** until **`toss` $=$ `number_of_tosses`.**
 7. Calculate $\pi$ using eq. 2.
 8. Print estimated $\pi$ value.
 
----
+## Imaginations on Parallelization
+As explained above, we had a *square* dartboard and were tossing. In the normal world, we toss these darts with our dexterous arm (left- or right-handedness). Now, imagine that we have $n$ arms (where $n>2$) and that all of our $n$ arms are equally dexterous. Let's also imagine that we improved ourselves to the point where we could toss darts using almost all of our hands simultaneously. Now we're getting pretty close to parallelizing the problem.
 
+## Return to Computer Science Realm to Solve the Problem
+The key characteristic of the **Monte Carlo method** is that **each random point is independent** of the others. This means that we can check multiple points in parallel. This brings us to **[data-level parallelism](https://en.wikipedia.org/wiki/Data_parallelism)**. We can follow the steps below to exploit data-parallelism.
+* Break the problem into chunks
+* Solve the equation for each independent chunk
+* Combine chunks
 
-
-
+## Algorithm for Parallel Version
+* Define the variable `number_of_tosses` (referring to $N$ in eq. 2), and specify how many iterations we will estimate $\pi$. Remember, every toss has to fall inside the square, but may not fall inside the circle!
+*  Define the variable `number_in_circle` (referring to $N_\text{circle}$ in eq. 2) and assign it 0. We will use this variable for tosses that fall inside the circle.
+* Define `block_size` (threads per block) and `num_blocks` (blocks in the grid) for parallel execution.
+* Allocate space on the GPU for `number_in_circle` to hold the count of tosses inside the circle from all threads.
+* Each thread generates a set of random $x$ and $y$ values between $-1$ and $1$ and checks if $x^2 + y2 \leq 1$, indicating that the point falls inside the circle.
+* Each thread maintains a local count (`local_count`) for points inside the circle and then adds this count to the global variable `number_in_circle` using an atomic addition operation (`atomicAdd()`).
+* Each thread handles a portion of the total tosses. The tosses are distributed across all threads, which independently generate random points and check if they fall inside the circle.
+* After all threads have finished, the total count of points inside the circle is stored in `number_in_circle`.
+* Retrieve the value of `number_in_circle` from the device and compute $\pi = \frac{4 \times \text{number\_in\_circle}}{\text{number\_of\_tosses}}$
+* Free the CUDA memory space used.
 
 [^1]: https://medium.com/@zubair09/running-cuda-on-google-colab-d8992b12f767
 [^2]: https://courses.cs.washington.edu/courses/cse160/16wi/sections/07/Section07Handout.pdf
