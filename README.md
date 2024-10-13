@@ -39,10 +39,10 @@ int main(){
 ```
 ---
 
-## What is [Monte Carlo Method]([url](https://en.wikipedia.org/wiki/Monte_Carlo_method))? 
-Monte Carlo methods, or Monte Carlo experiments, are a broad class of computational algorithms that rely on repeated random sampling to obtain numerical results. The underlying concept is to use randomness to solve problems that might be deterministic in principle. The name comes from the Monte Carlo Casino in Monaco, where the primary developer of the method, mathematician Stanislaw Ulam, was inspired by his uncle's gambling habits. (Wikipedia)
+## What is Monte Carlo Method? 
+Monte Carlo methods, or Monte Carlo experiments, are a broad class of computational algorithms that rely on repeated random sampling to obtain numerical results. The underlying concept is to use randomness to solve problems that might be deterministic in principle. The name comes from the Monte Carlo Casino in Monaco, where the primary developer of the method, mathematician Stanislaw Ulam, was inspired by his uncle's gambling habits. [^2]
 
-This is where we can take advantage of how quickly a computer can generate pseudorandom numbers. There is a whole class of algorithms called Monte  Carlo simulations that exploit randomness to estimate real-world scenarios that would otherwise be difficult to calculate explicitly. We can use a  Monte Carlo simulation to  estimate the area ratio of the circle to the square.[^2]
+This is where we can take advantage of how quickly a computer can generate pseudorandom numbers. There is a whole class of algorithms called Monte  Carlo simulations that exploit randomness to estimate real-world scenarios that would otherwise be difficult to calculate explicitly. We can use a  Monte Carlo simulation to  estimate the area ratio of the circle to the square.[^3]
 
 Imagine we randomly hit darts into the area of the square. We get this estimate by counting the total number of darts in the square (all of them since we always hit the square) to the total number of darts inside the circle. Multiply the estimated ratio by four and we get an estimate for $\pi$. The more dart we use the more accurate our estimate of $\pi$.
 
@@ -70,7 +70,7 @@ $$ \frac{4 \times N_\text{circle}}{N}\approx \frac{4 \times A_c}{A_s} = \pi \hsp
 
 ---
 
-## Algorithm for NON-Parallel Version [^3]
+## Algorithm for NON-Parallel Version [^4]
 1. Define the variable `number_of_tosses` (referring to $N$ in eq. 2), and specify how many iterations we will estimate $\pi$. Remember, every toss has to fall inside the square, but may not fall inside the circle!
 2. Define the variable `toss` and assign it 0 to use every iteration.
 3. Define the variable `number_in_circle` (referring to $N_\text{circle}$ in eq. 2) and assign it 0. We will use this variable for tosses that fall inside the circle.
@@ -103,5 +103,6 @@ The key characteristic of the **Monte Carlo method** is that **each random point
 11. Free the CUDA memory space used.
 
 [^1]: https://medium.com/@zubair09/running-cuda-on-google-colab-d8992b12f767
-[^2]: https://courses.cs.washington.edu/courses/cse160/16wi/sections/07/Section07Handout.pdf
-[^3]: https://www.geeksforgeeks.org/estimating-value-pi-using-monte-carlo/
+[^2]: https://en.wikipedia.org/wiki/Monte_Carlo_method
+[^3]: https://courses.cs.washington.edu/courses/cse160/16wi/sections/07/Section07Handout.pdf
+[^4]: https://www.geeksforgeeks.org/estimating-value-pi-using-monte-carlo/
