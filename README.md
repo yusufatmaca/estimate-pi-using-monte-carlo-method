@@ -90,17 +90,17 @@ The key characteristic of the **Monte Carlo method** is that **each random point
 * Combine chunks
 
 ## Algorithm for Parallel Version
-* Define the variable `number_of_tosses` (referring to $N$ in eq. 2), and specify how many iterations we will estimate $\pi$. Remember, every toss has to fall inside the square, but may not fall inside the circle!
-*  Define the variable `number_in_circle` (referring to $N_\text{circle}$ in eq. 2) and assign it 0. We will use this variable for tosses that fall inside the circle.
-* Define `block_size` (threads per block) and `num_blocks` (blocks in the grid) for parallel execution.
-* Allocate space on the GPU for `number_in_circle` to hold the count of tosses inside the circle from all threads.
-* Each thread generates a set of random $x$ and $y$ values between $-1$ and $1$ and checks if $x^2 + y2 \leq 1$, indicating that the point falls inside the circle.
-* Each thread maintains a local count (`local_count`) for points inside the circle and then adds this count to the global variable `number_in_circle` using an atomic addition operation (`atomicAdd()`).
-* Each thread handles a portion of the total tosses. The tosses are distributed across all threads, which independently generate random points and check if they fall inside the circle.
-* After all threads have finished, the total count of points inside the circle is stored in `number_in_circle`.
-* Retrieve the value of `number_in_circle` from the device and compute $\pi = \frac{4 \times N_{\text{circle}}}{N_{\text{total}}}$
-
-* Free the CUDA memory space used.
+1. Define the variable `number_of_tosses` (referring to $N$ in eq. 2), and specify how many iterations we will estimate $\pi$. Remember, every toss has to fall inside the square, but may not fall inside the circle!
+2. Define the variable `number_in_circle` (referring to $N_\text{circle}$ in eq. 2) and assign it 0. We will use this variable for tosses that fall inside the circle.
+3. Define `block_size` (threads per block) and `num_blocks` (blocks in the grid) for parallel execution.
+4. Allocate space on the GPU for `number_in_circle` to hold the count of tosses inside the circle from all threads.
+5. Each thread generates a set of random $x$ and $y$ values between $-1$ and $1$ and checks if $x^2 + y2 \leq 1$, indicating that the point falls inside the circle.
+6. Each thread maintains a local count (`local_count`) for points inside the circle and then adds this count to the global variable `number_in_circle` using an atomic addition operation (`atomicAdd()`).
+7. Each thread handles a portion of the total tosses. The tosses are distributed across all threads, which independently generate random points and check if they fall inside the circle.
+8. After all threads have finished, the total count of points inside the circle is stored in `number_in_circle`.
+9. Retrieve the value of `number_in_circle` from the device and compute $\pi = \frac{4 \times N_{\text{circle}}}{N_{\text{total}}}$
+10. Print estimated $\pi$ value.
+11. Free the CUDA memory space used.
 
 [^1]: https://medium.com/@zubair09/running-cuda-on-google-colab-d8992b12f767
 [^2]: https://courses.cs.washington.edu/courses/cse160/16wi/sections/07/Section07Handout.pdf
