@@ -66,7 +66,7 @@ This ratio can be interpreted probabilistically: if we randomly toss darts unifo
 
 If we toss $N$ random darts, the number of darts that land inside the circle, say ${N_\text{circle}}$, will approximately satisfy:
 
-$$ \frac{N_\text{circle}}{N}\approx \frac{4 \times A_c}{A_s} = \pi \hspace{1.5cm} \text{(2)}$$
+$$ \frac{4 \times N_\text{circle}}{N}\approx \frac{4 \times A_c}{A_s} = \pi \hspace{1.5cm} \text{(2)}$$
 
 ---
 
