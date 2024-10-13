@@ -9,16 +9,16 @@ If you want to work on [Google Colab](https://colab.google/), you should follow 
 * Paste the code snippet below and click the **run cell** button or press **CTRL+Enter**
 
 ```python
-# check python version to verify automatically installed
+# Check the Python version to verify automatically installed
 !python --version
 
-# check nvcc (CUDA compiler driver) version to verify the automatically installed
+# Check NVCC (CUDA compiler driver) version to verify the automatically installed
 !nvcc --version
 
-# since google colab runs jupyter notebook, we need to install nvcc4jupyter: cuda c++ plugin for jupyter notebook
+# Since Google Colab runs Jupyter Notebook, we need to install the nvcc4jupyter: CUDA C++ Plugin for Jupyter Notebook
 !pip install nvcc4jupyter
 
-# after installing, load the package (or extension)
+# After installing, load the package (called extension)
 %load_ext nvcc4jupyter
 ```
 
@@ -49,7 +49,7 @@ Imagine we randomly hit darts into the area of the square. We get this estimate 
 ---
 
 ## Mathematical Explanation of This Problem
-For the sake of simplicity of mathematical operations, let us consider a concentric circle of length 1 feet and a square inscribing this circle. 
+For the sake of simplicity of mathematical operations, let us consider a concentric circle of 1 foot in length and a square inscribing this circle. 
 
 <p align="center">
   <img src="https://i.ibb.co/1RBMKT9/Screenshot-from-2024-10-12-12-14-52.png?raw=true" width="200px" height="200px" alt="concentric unit circle and square"/>
@@ -98,7 +98,8 @@ The key characteristic of the **Monte Carlo method** is that **each random point
 * Each thread maintains a local count (`local_count`) for points inside the circle and then adds this count to the global variable `number_in_circle` using an atomic addition operation (`atomicAdd()`).
 * Each thread handles a portion of the total tosses. The tosses are distributed across all threads, which independently generate random points and check if they fall inside the circle.
 * After all threads have finished, the total count of points inside the circle is stored in `number_in_circle`.
-* Retrieve the value of `number_in_circle` from the device and compute $\pi = \frac{4 \times \text{number\_in\_circle}}{\text{number\_of\_tosses}}$
+* Retrieve the value of `number_in_circle` from the device and compute $\pi = \frac{4 \times N_{\text{circle}}}{N_{\text{total}}}$
+
 * Free the CUDA memory space used.
 
 [^1]: https://medium.com/@zubair09/running-cuda-on-google-colab-d8992b12f767
