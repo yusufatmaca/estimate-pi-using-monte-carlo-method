@@ -60,7 +60,7 @@ $$ \text{Area Square}: A_s = (2r)^2 = 4r^2 $$
 $$ \text{The ratio of the two areas is}: \frac{A_c}{A_s} = \frac{\pi.\bcancel{r^2}}{4\bcancel{r^2}} $$
 $$ \text{Let's solve for pi}: \pi = \frac{4A_c}{A_s} \hspace{1.5cm} \text{(1)}$$ 
 
-If we have an estimate for the ratio of the area of the circleto the area of the square we can solve for $\pi$. The challenge becomes estimating this ratio.
+If we have an estimate for the ratio of the area of the circle to the area of the square we can solve for $\pi$. The challenge becomes estimating this ratio.
 
 This ratio can be interpreted probabilistically: if we randomly toss darts uniformly into the square, the proportion of darts that land inside the circle (compared to the total number of darts) should be approximately equal to the ratio of the area of the circle to the area of the square.
 
@@ -84,7 +84,7 @@ $$ \frac{N_\text{circle}}{N}\approx \frac{4 \times A_c}{A_s} = \pi \hspace{1.5cm
 As explained above, we had a *square* dartboard and were tossing. In the normal world, we toss these darts with our dexterous arm (left- or right-handedness). Now, imagine that we have $n$ arms (where $n>2$) and that all of our $n$ arms are equally dexterous. Let's also imagine that we improved ourselves to the point where we could toss darts using almost all of our hands simultaneously. Now we're getting pretty close to parallelizing the problem.
 
 ## Return to Computer Science Realm to Solve the Problem
-The key characteristic of the **Monte Carlo method** is that **each random point is independent** of the others. This means that we can check multiple points in parallel. This brings us to **[data-level parallelism](https://en.wikipedia.org/wiki/Data_parallelism)**. We can follow the steps below to exploit data-parallelism.
+The key characteristic of the **Monte Carlo method** is that **each random point is independent** of the others. This means that we can check multiple points in parallel. This brings us to **[data-level parallelism](https://en.wikipedia.org/wiki/Data_parallelism)**. We can follow the steps below to exploit data parallelism.
 * Break the problem into chunks
 * Solve the equation for each independent chunk
 * Combine chunks
