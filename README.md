@@ -80,6 +80,10 @@ $$ \frac{N_\text{circle}}{N}\approx \frac{4 \times A_c}{A_s} = \pi \hspace{1.5cm
 7. Calculate $\pi$ using eq. 2.
 8. Print estimated $\pi$ value.
 
+---
+
+
+
 
 
 [^1]: https://medium.com/@zubair09/running-cuda-on-google-colab-d8992b12f767
