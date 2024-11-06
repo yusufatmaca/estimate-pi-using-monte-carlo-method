@@ -104,9 +104,6 @@ The key characteristic of the **Monte Carlo method** is that **each random point
 
 ---
 
-For Yusuf's implementation: https://github.com/yusufatmaca/estimate-pi-using-monte-carlo-method/tree/main/approach-1  
-For Yiğithan's implementation: https://github.com/yusufatmaca/estimate-pi-using-monte-carlo-method/tree/main/approach-2
-
 [^1]: https://medium.com/@zubair09/running-cuda-on-google-colab-d8992b12f767
 [^2]: https://en.wikipedia.org/wiki/Monte_Carlo_method
 [^3]: https://courses.cs.washington.edu/courses/cse160/16wi/sections/07/Section07Handout.pdf
